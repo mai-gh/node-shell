@@ -7,7 +7,9 @@ process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
   
   if (cmd == 'pwd') {
-    process.stdout.write(process.mainModule.path);
+    require('./pwd.js')
+  } else if (cmd == 'ls') {
+      require('./ls.js')
   } else {
     process.stdout.write("You Typed: " + cmd);
   }
