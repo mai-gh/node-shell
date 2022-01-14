@@ -14,8 +14,11 @@ process.stdin.on('data', (data) => {
   } else if (cmd[0] == 'ls') {
       require('./ls.js')
   } else if (cmd[0] == 'cat') {
-      const outCat = require('./cat.js')
-      outCat(cmd[1]);
+      const ourCat = require('./cat.js')
+      ourCat(cmd[1]);
+  } else if (cmd[0] == 'curl') {
+      const ourCurl = require('./curl.js')
+      ourCurl(cmd[1]);
   } else {
     process.stdout.write("You Typed: " + cmd[0]);
   }
