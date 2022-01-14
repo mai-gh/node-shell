@@ -1,10 +1,16 @@
-//console.log(process);
+//console.log(process.mainModule.path);
 
 
 process.stdout.write('prompt > ')
 
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim();
-  process.stdout.write("You Typed: ", cmd);
+  
+  if (cmd == 'pwd') {
+    process.stdout.write(process.mainModule.path);
+  } else {
+    process.stdout.write("You Typed: " + cmd);
+  }
   process.stdout.write('\nprompt > ')
 })
+
